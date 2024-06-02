@@ -18,11 +18,10 @@ This project is a Task Manager REST API developed by @iamvisshu using Java with 
 
 ⭐**About Task-Manager-API 💻✨**
 
+  * This is Springboot Project to create, update, view and remove tasks. This ia simple task management app, which is having a simple webpage to hit this REST API to show data, configured H2 DB console and supports MySQL as well.
   * Project Structure - Refer below ⏬ image.
    ![Project Structure](https://github.com/iamvisshu/task-manager-api/assets/53083619/afad89a8-2999-4d83-821c-446f975dcdd4)
-  * How it looks :
-  * 
-
+ 
 ---
 
 🔨**Technical Details:**
@@ -37,15 +36,17 @@ This project is a Task Manager REST API developed by @iamvisshu using Java with 
 
 * Clone this repository or download it as zip.
 * Make sure your system meets Technical requirements given above.
-* Build the project, navigate to the project root directory and run :
-`mvn clean install`
-`mvn spring-boot:run`
+* If you are using MySQL, please ensure MySQL is running and configured properly.
+* To build the project, navigate to the project root directory and :
+> Run `mvn clean install` and then
+> `mvn spring-boot:run`
 * Your Spring Boot application should now be running, and you can access it at `http://localhost:8080.`
-* Access H2 consile from here - `http://localhost:8080/h2-console` using username and password both as - `sa`
+* Access H2 console from here - `http://localhost:8080/h2-console` using username and password both as - `sa`
+* ⛔ _**NOTE : Check all configurations, ports , pom.xml, application.properties before running application.**_
   
 ---
 
-🔨**Usage:**
+☑️ **Usage:**
 
 * Launch index.html in browser.
 * Enter the task id and click on `Get Task` button
@@ -55,11 +56,11 @@ This project is a Task Manager REST API developed by @iamvisshu using Java with 
 
 ---
 
-🔨**API:**
+✈️ **API:**
 	
 ---
 
-🔨**Contributing:**
+👫 **Contributing:**
 
 We welcome contributions to this project! If you'd like to contribute, please:
 
@@ -69,13 +70,11 @@ We welcome contributions to this project! If you'd like to contribute, please:
 
 ---
 
-🔨**License:**
+💳 **License:**
 
  * This project is licensed under the Open-source [**MIT License**].
  
 ---
 
-🔨**Author:**
+✒️ **Author:**
 * @iamvisshu - Vishal Vishwakarma 😇
-	
----
