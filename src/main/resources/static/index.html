@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task API Viewer</title>
+    <style>
+        /* Add borders to the table */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Task API Viewer</h1>
+
+<!-- Form for searching by task ID -->
+<form id="taskForm">
+    <label for="taskNumber">Enter Task Number:</label>
+    <input type="number" id="taskNumber" name="taskNumber" min="1" required>
+    <button type="submit">Get Task</button>
+</form>
+
+<!-- Display single task details in a separate table -->
+<table id="singleTaskTable">
+    <thead>
+    <tr>
+        <th>Task ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Deadline</th>
+        <th>Priority</th>
+        <th>Completed</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Button to fetch all tasks -->
+<button id="getAllTasks">Get All Tasks</button>
+
+<!-- Table to display all task data -->
+<table id="taskTable">
+    <thead>
+    <tr>
+        <th>Task ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Deadline</th>
+        <th>Priority</th>
+        <th>Completed</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    // Existing code for fetching a single task
+    document.getElementById('taskForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const taskNumber = document.getElementById('taskNumber').value;
+        const apiUrl = `http://localhost:8080/tasks/${taskNumber}`;
+
+        try {
+            const response = await fetch(apiUrl);
+            if (response.ok) {
+                const data = await response.json();
+                displaySingleTask(data);
+            } else {
+                document.getElementById('taskResult').textContent = 'Error fetching task data.';
+            }
+        } catch (error) {
+            console.error('Error fetching task:', error);
+            document.getElementById('taskResult').textContent = 'An error occurred.';
+        }
+    });
+
+    function displaySingleTask(task) {
+    const singleTaskTableBody = document.querySelector('#singleTaskTable tbody');
+
+    // Clear existing rows
+    singleTaskTableBody.innerHTML = '';
+
+    // Create a new row for the task
+    const singleTaskRow = document.createElement('tr');
+    singleTaskRow.innerHTML = `
+        <td>${task.id}</td>
+        <td>${task.title}</td>
+        <td>${task.description}</td>
+        <td>${task.deadline}</td>
+        <td>${task.priority}</td>
+        <td>${task.completed ? 'Yes' : 'No'}</td>
+    `;
+
+    // Append the new row to the table
+    singleTaskTableBody.appendChild(singleTaskRow);
+}
+
+
+    // Fetch all tasks and display them in the table
+    document.getElementById('getAllTasks').addEventListener('click', async function () {
+        const allTasksUrl = 'http://localhost:8080/tasks'; // Adjust the API URL as needed
+
+        try {
+            const response = await fetch(allTasksUrl);
+            if (response.ok) {
+                const tasks = await response.json();
+                displayAllTasks(tasks);
+            } else {
+                document.getElementById('taskResult').textContent = 'Error fetching tasks.';
+            }
+        } catch (error) {
+            console.error('Error fetching tasks:', error);
+            document.getElementById('taskResult').textContent = 'An error occurred.';
+        }
+    });
+
+    function displayAllTasks(tasks) {
+        const tableBody = document.querySelector('#taskTable tbody');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        tasks.forEach(task => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${task.id}</td>
+                <td>${task.title}</td>
+                <td>${task.description}</td>
+                <td>${task.deadline}</td>
+                <td>${task.priority}</td>
+                <td>${task.completed ? 'Yes' : 'No'}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+</script>
+</body>
+</html>
