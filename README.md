@@ -19,7 +19,7 @@ This project is a Task Manager REST API developed by @iamvisshu using Java with 
 ⭐**About Task-Manager-API 💻✨**
 
   * Project Structure - Refer below ⏬ image.
-  * ![Project Structure](https://github.com/iamvisshu/task-manager-api/assets/53083619/afad89a8-2999-4d83-821c-446f975dcdd4)
+   ![Project Structure](https://github.com/iamvisshu/task-manager-api/assets/53083619/afad89a8-2999-4d83-821c-446f975dcdd4)
   * How it looks :
   * 
 
@@ -34,11 +34,25 @@ This project is a Task Manager REST API developed by @iamvisshu using Java with 
 ---
 
 🔧**Installation:**
-	
+
+* Clone this repository or download it as zip.
+* Make sure your system meets Technical requirements given above.
+* Build the project, navigate to the project root directory and run :
+`mvn clean install`
+`mvn spring-boot:run`
+* Your Spring Boot application should now be running, and you can access it at `http://localhost:8080.`
+* Access H2 consile from here - `http://localhost:8080/h2-console` using username and password both as - `sa`
+  
 ---
 
 🔨**Usage:**
-	
+
+* Launch index.html in browser.
+* Enter the task id and click on `Get Task` button
+* If you want to see all tasks click on buton `Get All Tasks`
+* Refer below ⏬ image.
+  ![Index](https://github.com/iamvisshu/task-manager-api/assets/53083619/948c7440-5518-4abf-a181-db2a9be8e03d)
+
 ---
 
 🔨**API:**
