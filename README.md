@@ -1,4 +1,4 @@
-# Task-Manager-API 💻✨ : Created by @iamvisshu - Vishal Vishwakarma
+# Task-Manager-API 💻 : Created by @iamvisshu - Vishal Vishwakarma
 This project is a Task Manager REST API developed by @iamvisshu using Java with Spring Boot.
 	
 ---
@@ -67,13 +67,13 @@ This project is a Task Manager REST API developed by @iamvisshu using Java with 
 ![H2 Console SQL](https://github.com/iamvisshu/task-manager-api/assets/53083619/3d286d1c-c896-47ca-932a-6d971e32e21b)
 
 *  Hitting API by using Postman.
-*  GET all tasks. `http://localhost:8080/tasks`
+*  Hit GET like below to get all tasks. `http://localhost:8080/tasks`
 ![Postaman 01](https://github.com/iamvisshu/task-manager-api/assets/53083619/a9b03612-541d-47b3-b4d9-9a013165fb7f)
 
-*  GET specific tasks by id. For example : `http://localhost:8080/tasks/2`
+*  Hit GET to get a single specific tasks by id. For example : `http://localhost:8080/tasks/2`
 ![Postaman 02](https://github.com/iamvisshu/task-manager-api/assets/53083619/c8d6d04c-0de7-4469-ba37-c999d7ddd223)
 
-*  POST the entry in table by hitting API like below :
+*  Hit POST to add a new  entry in table thru API like below :
 ![Postaman 03](https://github.com/iamvisshu/task-manager-api/assets/53083619/b1642ac1-efb5-4821-9714-e96f72573958)
 
 *  POST will have below structure in body of Request. SAMPLE REQUEST is below : 
@@ -89,6 +89,7 @@ This project is a Task Manager REST API developed by @iamvisshu using Java with 
 * SAMPLE Response will look like this :
 ```JSON
 {
+    "id": "2",
     "title": "Sample Task",
     "description": "This is a sample task created using Postman",
     "deadline": "2024-05-25T12:00:00",
